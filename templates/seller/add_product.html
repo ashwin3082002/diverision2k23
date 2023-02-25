@@ -1,117 +1,69 @@
+{% extends 'seller/template.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}Add Product{% endblock title %}
 
-    <title>Template</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+{% block body %}
+<div class="add_product">
 
-</head>
-<body>
-    
+    <br>
 
-    <main>
+<h1>Add Product</h1>
+<hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
 
-        <header>
+    <br>
+    <br>
 
-            <h1>SAFE<span style="font-size: 20px;">Pay</span></h1>
+<form action="{% url 'add_product' %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <label for="product_name">Name:</label>
+    <br>
+    <input type="text" name="product_name" id="product_name" required>
+    <br>
+    <br>
+    <label for="product_image">Image Link:</label>
+    <br>
+    <input type="file" name="product_image" accept="image/png, image/jpeg" id="product_image" required>
+    <br>
+    <br>
+    <label for="product_price">Price:</label>
+    <br>
+    <input type="text" name="product_price" id="product_price" required>
+    <br>
+    <br>
+    <label for="product_description">Description:</label>
+    <br>
+    <textarea name="product_description" id="product_description" cols="65" rows="10" required></textarea>
+    <br>
+    <br>
+    <label for="product_category">Category:</label>
+    <br>
+    <select name="product_category" id="product_category" required>
+        <option value="Select Category" disabled selected>Select Category</option>
+        <option value="mobiles">Mobiles</option>
+        <option value="electronics">Electronics</option>
+        <option value="cosmetics">Cosmetics</option>
+        <option value="fashion">Fashion</option>
+        <option value="toys">Toys</option>
+        <option value="pharmacy">Pharmacy</option>
+        <option value="Furniture">Furniture</option>
+    </select>
+    <br>
+    <br>
+    <br>    
+    <input type="submit" value="Add Product">
+</form>
 
-            <nav>
-                <a href="{% url 'seller_index' %}"><img src="{% static 'seller/img/home.png' %}">&nbsp;Home</a>
-                <a href="{% url 'add_product' %}"><img src="{% static 'seller/img/newlisting.png' %}">&nbsp;New listing</a>
-                <a href="{% url 'view_product' %}"><img src="{% static 'seller/img/products.png' %}">&nbsp;Products</a>
-                <a href="seller_orders.html"><img src="{% static 'seller/img/orders.png' %}">&nbsp;Orders</a>
-            </nav>
+<br>
 
+<br>
 
-            <div id="profile_badge">
+<br>
 
-                <button>
-                    <img src="{% static 'seller/img/profile.png' %}"> &nbsp; <p>Mithun Raj</p>
-                </button>
+<br>
 
-                
-
-            </div>
-
-        </header>
-
-        <div id="container">
-
-            <div class="add_product">
-
-                <br>
-
-            <h1>Add Product</h1>
-            <hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
-
-                <br>
-                <br>
-
-            <form action="{% url 'add_product' %}" enctype="multipart/form-data" method="POST">
-                {% csrf_token %}
-                <label for="product_name">Name:</label>
-                <br>
-                <input type="text" name="product_name" id="product_name" required>
-                <br>
-                <br>
-                <label for="product_image">Image Link:</label>
-                <br>
-                <input type="file" name="product_image" accept="image/png, image/jpeg" id="product_image" required>
-                <br>
-                <br>
-                <label for="product_price">Price:</label>
-                <br>
-                <input type="text" name="product_price" id="product_price" required>
-                <br>
-                <br>
-                <label for="product_description">Description:</label>
-                <br>
-                <textarea name="product_description" id="product_description" cols="65" rows="10" required></textarea>
-                <br>
-                <br>
-                <label for="product_category">Category:</label>
-                <br>
-                <select name="product_category" id="product_category" required>
-                    <option value="Select Category" disabled selected>Select Category</option>
-                    <option value="mobiles">Mobiles</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="cosmetics">Cosmetics</option>
-                    <option value="fashion">Fashion</option>
-                    <option value="toys">Toys</option>
-                    <option value="pharmacy">Pharmacy</option>
-                    <option value="Furniture">Furniture</option>
-                </select>
-                <br>
-                <br>
-                <br>    
-                <input type="submit" value="Add Product">
-            </form>
-
-            <br>
-
-            <br>
-
-            <br>
-
-            <br>
-
-            <br>
+<br>
 
 
-            </div>
+</div>
+{% endblock body %}
 
-        </div>
-
-        <footer>
-            <p>All rights reserved.</p>
-        </footer>
-
-    </main>
-    
-</body>
-</html>

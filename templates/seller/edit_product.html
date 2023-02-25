@@ -1,100 +1,49 @@
+{% extends 'seller/template.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <title>Template</title>
+{% block title %}Edit Product{% endblock title %}
 
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-
-</head>
-<body>
-
-    <main>
-
-        <header>
-
-            <h1>SAFE<span style="font-size: 20px;">Pay</span></h1>
-
-            <nav>
-                <a href="{% url 'seller_index' %}"><img src="{% static 'seller/img/home.png' %}">&nbsp;Home</a>
-                <a href="{% url 'add_product' %}"><img src="{% static 'seller/img/newlisting.png' %}">&nbsp;New listing</a>
-                <a href="{% url 'view_product' %}"><img src="{% static 'seller/img/products.png' %}">&nbsp;Products</a>
-                <a href="seller_orders.html"><img src="{% static 'seller/img/orders.png' %}">&nbsp;Orders</a>
-            </nav>
+{% block body %}
 
 
-            <div id="profile_badge">
+<div class="product_seller">
 
-                <button>
-                    <img src="{% static 'seller/img/profile.png' %}"> &nbsp; <p>Mithun Raj</p>
-                </button>
+    <br>
 
-                
+<h1>Product Page</h1>
+<hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
 
-            </div>
+<br>
+<br>
 
-                
-
-            </div>
-
-        </header>
-
-        <div id="container">
-
-
-
-            <div class="product_seller">
-
-                <br>
-
-            <h1>Product Page</h1>
-            <hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
-
-            <br>
-            <br>
-
-            <div class="wrapper">
-                
-                <img src="/media/{{product.product_photo}}" alt=""> 
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                <div>
-                    <h1>{{product.product_name}}</h1>
-                    <br>
-                    <br>
-                    <h2>Price:<span> Rs {{product.product_price}}</span></h2>
-                    <br>
-                    <h2>Category:<span> {{product.category}}</span></h3>
-                    <br>
-                    <h2>Product ID:<span> {{product.product_id}}</span></h3>
-                        <br>
-                    <h2>Description:</h2>
-                    <span>{{product.product_description}}</span>
-                    <h3></h3>
-                </div>
-
-            </div>
-            <button onclick="location.href='edit_product.html'">Edit product</button> <button>Delete product</button>
-
-            <br>
-            <br>
-            <br>
-            
-            </div>
-
-        </div>
-
-        <footer>
-            <p>All rights reserved.</p>
-        </footer>
-
-    </main>
+<div class="wrapper">
     
-</body>
-</html>
+    <img src="/media/{{product.product_photo}}" alt=""> 
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <div>
+        <h1>{{product.product_name}}</h1>
+        <br>
+        <br>
+        <h2>Price:<span> Rs {{product.product_price}}</span></h2>
+        <br>
+        <h2>Category:<span> {{product.category}}</span></h3>
+        <br>
+        <h2>Product ID:<span> {{product.product_id}}</span></h3>
+            <br>
+        <h2>Description:</h2>
+        <span>{{product.product_description}}</span>
+        <h3></h3>
+    </div>
+
+</div>
+<button onclick="location.href='edit_product.html'">Edit product</button> <button>Delete product</button>
+
+<br>
+<br>
+<br>
+
+</div>
+
+{% endblock body %}

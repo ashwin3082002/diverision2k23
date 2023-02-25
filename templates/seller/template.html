@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock title %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+
+    <main>
+
+        <header>
+
+            <h1>SAFY<span style="font-size: 20px;">Pay</span></h1>
+
+            <nav>
+                <a href="{% url 'seller_index' %}"><img src="{% static 'seller/img/home.png' %}">&nbsp;Home</a>
+                <a href="{% url 'add_product' %}"><img src="{% static 'seller/img/newlisting.png' %}">&nbsp;New listing</a>
+                <a href="{% url 'view_product' %}"><img src="{% static 'seller/img/products.png' %}">&nbsp;Products</a>
+                <a href="seller_orders.html"><img src="{% static 'seller/img/orders.png' %}">&nbsp;Orders</a>
+            </nav>
+
+            <div id="profile_badge">
+
+                <button>
+                    <img src="{% static 'seller/img/profile.png' %}"> &nbsp; <p>Mithun Raj</p>
+                </button>
+
+                
+
+            </div>
+
+        </header>
+
+        <div id="container">
+            {% block body %}{% endblock body %}
+            
+
+        </div>
+
+        <footer>
+            <p>All rights reserved.</p>
+        </footer>
+
+    </main>
+    
+</body>
+</html>
