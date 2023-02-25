@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Template</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+    
+
+    <main>
+
+        <header>
+
+            <h1>SAFE<span style="font-size: 20px;">Pay</span></h1>
+
+            <nav>
+                <a href="{% url 'seller_index' %}"><img src="{% static 'seller/img/home.png' %}">&nbsp;Home</a>
+                <a href="{% url 'add_product' %}"><img src="{% static 'seller/img/newlisting.png' %}">&nbsp;New listing</a>
+                <a href="{% url 'view_product' %}"><img src="{% static 'seller/img/products.png' %}">&nbsp;Products</a>
+                <a href="seller_orders.html"><img src="{% static 'seller/img/orders.png' %}">&nbsp;Orders</a>
+            </nav>
+
+
+            <div id="profile_badge">
+
+                <button>
+                    <img src="{% static 'seller/img/profile.png' %}"> &nbsp; <p>Mithun Raj</p>
+                </button>
+
+                
+
+            </div>
+
+        </header>
+
+        <div id="container">
+
+            <div class="add_product">
+
+                <br>
+
+            <h1>Add Product</h1>
+            <hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
+
+                <br>
+                <br>
+
+            <form action="{% url 'add_product' %}" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <label for="product_name">Name:</label>
+                <br>
+                <input type="text" name="product_name" id="product_name" required>
+                <br>
+                <br>
+                <label for="product_image">Image Link:</label>
+                <br>
+                <input type="file" name="product_image" accept="image/png, image/jpeg" id="product_image" required>
+                <br>
+                <br>
+                <label for="product_price">Price:</label>
+                <br>
+                <input type="text" name="product_price" id="product_price" required>
+                <br>
+                <br>
+                <label for="product_description">Description:</label>
+                <br>
+                <textarea name="product_description" id="product_description" cols="65" rows="10" required></textarea>
+                <br>
+                <br>
+                <label for="product_category">Category:</label>
+                <br>
+                <select name="product_category" id="product_category" required>
+                    <option value="Select Category" disabled selected>Select Category</option>
+                    <option value="mobiles">Mobiles</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="cosmetics">Cosmetics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="toys">Toys</option>
+                    <option value="pharmacy">Pharmacy</option>
+                    <option value="Furniture">Furniture</option>
+                </select>
+                <br>
+                <br>
+                <br>    
+                <input type="submit" value="Add Product">
+            </form>
+
+            <br>
+
+            <br>
+
+            <br>
+
+            <br>
+
+            <br>
+
+
+            </div>
+
+        </div>
+
+        <footer>
+            <p>All rights reserved.</p>
+        </footer>
+
+    </main>
+    
+</body>
+</html>

@@ -1,0 +1,394 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+* button{
+    cursor: pointer;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f5;
+}
+main{
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+}
+main header{
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+}
+main header h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    color: #1b1b1b;
+}
+main header nav{
+    width: calc(100% - 400px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main header nav a{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #1b1b1b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main header nav a img{
+    width: 20px;
+}
+main header nav button{
+    cursor: pointer;
+    font-size: 15px;
+    background-color: #fff;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main header nav button img{
+    width: 30px;
+}
+main header #profile_badge{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main header #profile_badge button{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+main header #profile_badge button img{
+    width: 30px;
+    border-radius: 50%;
+    border: #1b1b1b 2px solid;
+}
+main #container{
+    width: 100%;
+    min-height: calc(100vh - 110px);
+}
+.slideshow-container {
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+  
+.slides {
+    display: flex;
+}
+  
+.slide {
+    flex: 1;
+}
+  
+.slide img {
+    width: 100%;
+    height: auto;
+}
+.categories_wrapper{
+    width: 100%;
+}
+.categories_wrapper .categories{
+    width: max-content;
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    overflow: visible;
+}
+.categories_wrapper .categories div{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #1b1b1b;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.add_product{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.add_product h1{
+    font-size: 35px;
+}
+.add_product form label{
+    font-size: 25px;
+}
+.add_product form input{
+    font-size: 20px;
+    width: 500px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+.add_product form select{
+    font-size: 20px;
+    width: 500px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+.add_product form textarea{
+    font-size: 20px;
+    width: 500px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+.add_product form input[type="submit"]{
+    cursor: pointer;
+}
+.products_seller{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.products_seller h1{
+    font-size: 35px;
+}
+.products_seller form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.products_seller form input{
+    font-size: 20px;
+    width: calc(100% - 100px);
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+.products_seller form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+.products_seller form button img{
+    width: 28px;
+}
+.producttable{
+    width: 100%;
+    display: flex;
+    font-size: 23px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.products_seller a{
+    text-decoration: none;
+    color: #1b1b1b;
+}
+.products_seller a .producttable:hover{
+    background-color: #e7e7e7;
+}
+.producttable div{
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+    border-right: 1px solid rgb(82, 81, 81);
+}
+.orders_seller{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.orders_seller h1{
+    font-size: 35px;
+}
+.orders_seller form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.orders_seller form input{
+    font-size: 20px;
+    width: calc(100% - 100px);
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+.orders_seller form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100px;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+.orders_seller form button img{
+    width: 28px;
+}
+.orderstable{
+    width: 100%;
+    display: flex;
+    font-size: 23px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.orders_seller a{
+    text-decoration: none;
+    color: #1b1b1b;
+}
+.orders_seller a .orderstable:hover{
+    background-color: #e7e7e7;
+}
+.orderstable div{
+    width: 240px;
+    text-align: center;
+    padding: 10px;
+    border-right: 1px solid rgb(82, 81, 81);
+}
+.product_seller{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.product_seller h1{
+    font-size: 35px;
+}
+.wrapper{
+    display: flex;
+}
+.wrapper img{
+    width: 250px;
+    height: 250px;
+}
+.wrapper div span{
+    font-size: 20px;
+    font-weight: 100;
+}
+.order_wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    margin: 0 auto;
+}
+.order_wrapper div span{
+    font-size: 20px;
+    font-weight: 100;
+}
+.product_seller button{
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+main footer{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1b1b1b;
+}
+
+
+
+
+
+
+.login_page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.login_page .login_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login_page .login_wrapper img{
+    width: 150px;
+    height: auto;
+}
+.login_page .login_wrapper .login_form{
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+}
+.login_page .login_wrapper .login_form form{
+    font-size: 22px;
+    width: 260px;
+    padding: 10px;
+}
+.login_page .login_wrapper .login_form form input[type=text]{
+    width: 250px;
+    outline: none;
+    font-size: 18px;
+    padding: 4px;
+}
+.login_page .login_wrapper .login_form form input[type=password]{
+    width: 250px;
+    padding: 4px;
+    outline: none;
+    font-size: 18px;
+}
+.login_page .login_wrapper .login_form form a{
+    font-size: 1rem;
+}
+.login_page .login_wrapper .login_form form input[type=submit]{
+    width: 100%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: #00ad42;
+    color: #f9f9f9;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+}
+.login_page .login_wrapper .login_form p{
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+}
