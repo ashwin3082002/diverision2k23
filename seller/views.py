@@ -68,6 +68,13 @@ def edit_product(request, id):
     context = {'product':product}
     return render(request, 'seller/edit_product.html', context)
 
+@login_required(login_url='seller_login')
+def orders(request):
+    seller_id =  Seller.objects.get(seller_email=request.user.username)
+    order = Order.objects.filter(product_id__seller_id=seller_id)
+    context = {'orders':order, "empty":order.first()}
+    return render(request, 'seller/orders.html', context)
+
 
 def seller_login(request):
     if request.method == 'POST':
