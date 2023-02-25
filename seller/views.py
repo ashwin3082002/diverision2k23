@@ -27,10 +27,24 @@ def add_product(request):
     return render(request, 'seller/add_product.html')
 
 @login_required(login_url='seller_login')
-def view_product(request):
+def list_product(request):
     seller_id =  Seller.objects.get(seller_email=request.user.username)
     product = Product.objects.filter(seller_id=seller_id)
-    context = {'products':product}
+    context = {'products':product, "empty":product.first()}
+    return render(request, 'seller/list_product.html', context)
+
+@login_required(login_url='seller_login')
+def view_product(request, id):
+    product = Product.objects.get(product_id=id)
+    if "edit" in request.POST:
+        return redirect('edit_product', id=id)
+    
+    if "delete" in request.POST:
+        product.delete()
+        messages.success(request, 'Product deleted successfully')
+        return redirect('list_product')
+    
+    context = {'product':product}
     return render(request, 'seller/view_product.html', context)
 
 @login_required(login_url='seller_login')
@@ -50,9 +64,10 @@ def edit_product(request, id):
         product.category = category
         product.save()
         messages.success(request, 'Product updated successfully')
-        return redirect('view_product')
+        return redirect('view_product', id=id)
     context = {'product':product}
     return render(request, 'seller/edit_product.html', context)
+
 
 def seller_login(request):
     if request.method == 'POST':

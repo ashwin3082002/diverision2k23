@@ -1,45 +1,57 @@
 {% extends 'seller/template.html' %}
 
-{% block title %}Product Listing | Seller{% endblock title %}
+{% block title %}Edit Product{% endblock title %}
 
 {% block body %}
 
-<div class="products_seller">
+
+<div class="product_seller">
 
     <br>
 
-<h1>Listed Products</h1>
+<h1>Product Page</h1>
 <hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
 
 <br>
 <br>
 
-<div class="producttable" style="background-color: rgb(193, 192, 192);">
-    <div class="producttable_id">Product ID</div>
-    <div class="producttable_name">Name</div>
-    <div class="producttable_category">Category</div>
-    <div class="producttable_price" style="border:none;">Price</div>
-</div>
-
-<br>
-<br>
-
-{% for product in products %}
-<a href="/seller/product_edit/{{product.product_id}}">
-    <div class="producttable">
-        <div class="producttable_id">{{product.product_id}}</div> 
-        <div class="producttable_name">{{product.product_name}}</div>
-        <div class="producttable_category">{{product.category}}</div>
-        <div class="producttable_price" style="border:none;">Rs {{product.product_price}}</div>
+<div class="wrapper">
+    
+    <img src="/media/{{product.product_photo}}" alt=""> 
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <div>
+        <h1>{{product.product_name}}</h1>
+        <br>
+        <br>
+        <h2>Price:<span> Rs {{product.product_price}}</span></h2>
+        <br>
+        <h2>Category:<span> {{product.category}}</span></h3>
+        <br>
+        <h2>Product ID:<span> {{product.product_id}}</span></h3>
+            <br>
+        <h2>Description:</h2>
+        <span>{{product.product_description}}</span>
+        <h3></h3>
     </div>
-</a>
-
-<br>
-{% endfor %}
-
-
 
 </div>
 
+
+
+<form action="{% url 'view_product' product.product_id %}" method="post">
+    {% csrf_token %}
+    <button name="edit">Edit product</button> 
+    <button name="delete">Delete product</button>
+</form>
+
+
+<br>
+<br>
+<br>
+
+</div>
 
 {% endblock body %}

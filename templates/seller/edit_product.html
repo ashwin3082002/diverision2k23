@@ -3,47 +3,68 @@
 {% block title %}Edit Product{% endblock title %}
 
 {% block body %}
-
-
-<div class="product_seller">
+<div class="add_product">
 
     <br>
 
-<h1>Product Page</h1>
+<h1>Edit Product</h1>
 <hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
 
-<br>
-<br>
+    <br>
+    <br>
 
-<div class="wrapper">
-    
+<form action="{% url 'edit_product' product.product_id %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <label for="product_name">Name:</label>
+    <br>
+    <input type="text" name="product_name" id="product_name" value="{{product.product_name}}" required>
+    <br>
+    <br>
+    <label for="product_image">Image Link:</label>
+    <br>
+    <input type="file" accept="image/png, image/jpeg" name="product_image" id="product_image" required>
+    <br>
     <img src="/media/{{product.product_photo}}" alt=""> 
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    &nbsp;
-    <div>
-        <h1>{{product.product_name}}</h1>
-        <br>
-        <br>
-        <h2>Price:<span> Rs {{product.product_price}}</span></h2>
-        <br>
-        <h2>Category:<span> {{product.category}}</span></h3>
-        <br>
-        <h2>Product ID:<span> {{product.product_id}}</span></h3>
-            <br>
-        <h2>Description:</h2>
-        <span>{{product.product_description}}</span>
-        <h3></h3>
-    </div>
+    <br>
+    <br>
+    <label for="product_price">Price:</label>
+    <br>
+    <input type="text" name="product_price" id="product_price" value="{{product.product_price}}" required>
+    <br>
+    <br>
+    <label for="product_description">Description:</label>
+    <br>
+    <textarea name="product_description" id="product_description" cols="65" rows="10" required>{{product.product_description}} </textarea>
+    <br>
+    <br>
+    <label for="product_category">Category:</label>
+    <br>
+    <select name="product_category" id="product_category" value="Sample" required>
+        <option value="Select Category" disabled selected>Select Category</option>
+        <option value="Mobiles">Mobiles</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Cosmetics">Cosmetics</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Toys">Toys</option>
+        <option value="Pharmacy">Pharmacy</option>
+        <option value="Furniture">Furniture</option>
+    </select>
+    <br>
+    <br>
+    <br>    
+    <input type="submit" value="Save">
+</form>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
 
 </div>
-<button onclick="location.href='edit_product.html'">Edit product</button> <button>Delete product</button>
-
-<br>
-<br>
-<br>
-
-</div>
-
 {% endblock body %}

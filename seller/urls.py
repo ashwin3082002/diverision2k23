@@ -22,7 +22,8 @@ urlpatterns = [
     path('logout',views.seller_logout, name='seller_logout'),
 
     path('add/product',views.add_product, name='add_product'),
-    path('view/product',views.view_product, name='view_product'),
-    path('product_edit/<int:id>',views.edit_product, name='edit_product'),
+    path('product_listing',views.list_product, name='list_product'),
+    path('product_view/<int:id>',views.view_product, name='view_product'),
+    path('product_edit/<int:id>',views.edit_product, name='edit_product')
 ]
 
