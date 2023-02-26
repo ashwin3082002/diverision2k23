@@ -136,6 +136,21 @@ def seller_logout(request):
     return redirect('seller_login')
 
 def seller_wallet(request):
+    if request.method == 'POST':
+        seller_id = Seller.objects.get(seller_email=request.user.username)
+        amount = request.POST['amount']
+        amt = str(eval(seller_id.seller_wallet) + int(amount))
+        seller_id.seller_wallet = amt
+        seller_id.save()
+        send_sms(f"""Safypay Amount Added to Wallet 
+        
+Your Transaction of Rs.{amount} is done and your wallet is recharged
+
+Regards,
+Team Safypay""", seller_id.seller_phone)
+        messages.success(request, 'Amount added successfully')
+        return redirect('seller_wallet')
+    
     seller = Seller.objects.get(seller_email=request.user.username)
     transaction = Transactions.objects.filter(seller_id=seller)
 

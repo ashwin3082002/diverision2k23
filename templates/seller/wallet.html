@@ -25,9 +25,22 @@
             </div>
 
             <br>
-            <br>       
+            <br>
+            <br>
 
-            
+            <div>
+                <h2 for="" style="text-align:ce;" >Add Money</h2>
+                <hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
+                <br>
+                <form action="{% url 'seller_wallet' %}" method="POST" style="display:flex; flex-direction:column;">
+                    {% csrf_token %}
+                    <label for="" style="font-size:20px;">Enter amount</label><br>
+                    <input type="text" name="amount" style="width:500px; float:left;">
+                    <br>
+                    <input type="submit" style="width:500px; float:left;">
+                </form>
+            </div>
+
         </div>
 
             <br>
