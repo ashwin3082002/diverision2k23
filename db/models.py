@@ -6,10 +6,6 @@ class Seller(models.Model):
     seller_name = models.CharField(max_length=100)
     seller_email = models.EmailField(max_length=100)
     seller_phone = models.CharField(max_length=100)
-    seller_address = models.CharField(max_length=100)
-    seller_city = models.CharField(max_length=100)
-    seller_state = models.CharField(max_length=100)
-    seller_pincode = models.CharField(max_length=100)
     seller_photo = models.ImageField(upload_to='seller_photo', blank=True, null=True)
     seller_status = models.CharField(max_length=100, default='pending')
     seller_wallet = models.CharField(max_length=100, default='0')
@@ -22,10 +18,6 @@ class Buyer(models.Model):
     buyer_name = models.CharField(max_length=100)
     buyer_email = models.EmailField(max_length=100)
     buyer_phone = models.CharField(max_length=100)
-    buyer_address = models.CharField(max_length=100)
-    buyer_city = models.CharField(max_length=100)
-    buyer_state = models.CharField(max_length=100)
-    buyer_pincode = models.CharField(max_length=100)
     buyer_photo = models.ImageField(upload_to='buyer_photo', blank=True, null=True)
     buyer_status = models.CharField(max_length=100, default='pending')
     buyer_wallet = models.CharField(max_length=100, default='0')
@@ -70,6 +62,7 @@ class Transactions(models.Model):
     def __str__(self):
         return self.transaction_status
     
+
 class Delivery(models.Model):
     delivery_id = models.AutoField(primary_key=True)
     transaction_id = models.ForeignKey(Transactions, on_delete=models.CASCADE)
@@ -78,7 +71,7 @@ class Delivery(models.Model):
     dispute_reason = models.CharField(max_length=100, default=None, blank=True, null=True)
     disputed_by = models.CharField(max_length=100, default=None, blank=True, null=True, choices=(('buyer', 'buyer'), ('seller', 'seller')))
     solved_dispute = models.CharField(max_length=20, default=None, blank=True, null=True, choices=(('yes', 'yes'), ('no', 'no')))
-    
+    wronged_party = models.CharField(max_length=20, default=None, blank=True, null=True, choices=(('buyer', 'buyer'), ('seller', 'seller')))
 
 
     def __str__(self):
