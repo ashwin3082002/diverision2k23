@@ -30,6 +30,18 @@ def cart_page(request):
     return render(request, 'buyer/cart.html')
 
 def checkout_page(request):
+    if request.method == 'POST':
+        buyer = Buyer.objects.get(buyer_id=request.user.id)
+        product = Product.objects.get(product_id=request.POST['product_id'])
+        context = {
+            'buyer': buyer,
+            'product': product
+        }
+
+
+        print( request.POST['product_id'])
+        
+        return render(request, 'buyer/checkout.html', context)
     return render(request, 'buyer/checkout.html')
 
 def home_page(request):

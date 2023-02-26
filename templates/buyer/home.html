@@ -394,18 +394,18 @@
         {% for product in products %}
         <li class="product">
 
-            <img src="/media/{{ product.product_img}}" alt="">
+            <img src="/media/{{ product.product_photo}}" alt="">
 
             <div>
-                <h2><a href="#">{{product.product_title}}</a></h2>
+                <h2><a href="#">{{product.product_name}}</a></h2>
 
-                <p>Category: {{product.product_category}}</p>
-                <p>Price: {{product.amount}}</p>
+                <p>Category: {{product.category}}</p>
+                <p>Price: {{product.product_price}}</p>
                 {% comment %} add to cart {% endcomment %}
-                <form action="{% url 'home_buyer' %}" method="post">
+                <form action="{% url 'checkout_page' %}" method="post">
                     {% csrf_token %}
-                    <input value="{{product.id}}" name="product_id" id="product_id" hidden>
-                   <button type="submit" class="bttn"> Add to cart </button>
+                    <input value="{{product.product_id}}" name="product_id" id="product_id" hidden>
+                   <button type="submit" class="bttn"> Buy now </button>
                 </form>
                 
 
