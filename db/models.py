@@ -70,6 +70,7 @@ class Transactions(models.Model):
     def __str__(self):
         return self.transaction_status
     
+
 class Delivery(models.Model):
     delivery_id = models.AutoField(primary_key=True)
     transaction_id = models.ForeignKey(Transactions, on_delete=models.CASCADE)
@@ -78,7 +79,7 @@ class Delivery(models.Model):
     dispute_reason = models.CharField(max_length=100, default=None, blank=True, null=True)
     disputed_by = models.CharField(max_length=100, default=None, blank=True, null=True, choices=(('buyer', 'buyer'), ('seller', 'seller')))
     solved_dispute = models.CharField(max_length=20, default=None, blank=True, null=True, choices=(('yes', 'yes'), ('no', 'no')))
-    
+    wronged_party = models.CharField(max_length=20, default=None, blank=True, null=True, choices=(('buyer', 'buyer'), ('seller', 'seller')))
 
 
     def __str__(self):
