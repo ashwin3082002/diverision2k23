@@ -56,11 +56,7 @@ class Transactions(models.Model):
     transaction_id = models.AutoField(primary_key=True)
     transaction_date = models.DateField(auto_now=True)
     transaction_amount = models.CharField(max_length=100)
-    transaction_status = models.CharField(max_length=100, default='holding', choices=(('holding', 'holding'), ('refunded', 'refunded'), ('paid', 'paid')))
-    transaction_status = models.CharField(max_length=100, default='pending')
-    buyer_id = models.ForeignKey(Buyer, on_delete=models.CASCADE)
-    seller_id = models.ForeignKey(Seller, on_delete=models.CASCADE)
-    product_id = models.ForeignKey(Product,on_delete=models.CASCADE, blank=True, null=True)
+    order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.transaction_status
