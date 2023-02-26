@@ -9,6 +9,7 @@
     <title>{% block title %}{% endblock title %}</title>
     
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    
 
 </head>
 <body>
@@ -32,7 +33,7 @@
 
             <a href="{% url 'seller_index' %}" style="text-decoration:none;"><h1>SAFY<span style="font-size: 20px;">Pay</span></h1></a>
 
-            <nav>
+            <nav style="padding:0;">
                 <a href="{% url 'seller_index' %}"><img src="{% static 'seller/img/home.png' %}">&nbsp;Home</a>
                 <a href="{% url 'add_product' %}"><img src="{% static 'seller/img/newlisting.png' %}">&nbsp;New listing</a>
                 <a href="{% url 'list_product' %}"><img src="{% static 'seller/img/products.png' %}">&nbsp;Products</a>
