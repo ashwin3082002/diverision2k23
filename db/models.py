@@ -44,6 +44,9 @@ class Order(models.Model):
     buyer_id = models.ForeignKey(Buyer, on_delete=models.CASCADE)
     seller_id = models.ForeignKey(Seller, on_delete=models.CASCADE)
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    address = models.CharField(max_length=255, default='none')
+    transaction_status = models.CharField(max_length=100, default='holding', choices=(('holding', 'holding'), ('refunded', 'refunded'), ('paid', 'paid')))
+    status = models.CharField(max_length=100,default="created")
 
     def __str__(self):
         return self.order_status
@@ -57,7 +60,7 @@ class Transactions(models.Model):
     transaction_status = models.CharField(max_length=100, default='pending')
     buyer_id = models.ForeignKey(Buyer, on_delete=models.CASCADE)
     seller_id = models.ForeignKey(Seller, on_delete=models.CASCADE)
-    product_id = models.ManyToManyField(Product, blank=True, null=True)
+    product_id = models.ForeignKey(Product,on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.transaction_status

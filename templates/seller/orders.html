@@ -18,29 +18,33 @@
 <h2 style = "text-align:center;"> No Orders to list!!</h2>
 {% else %}
 
+
 <div class="orderstable" style="background-color: rgb(193, 192, 192);">
     <div class="order_id">Order ID</div>
     <div class="customer_id">Customer ID</div>
     <div class="product_id">Product ID</div>
-    <div class="product_quantity">Quantity</div>
+    
+    <div class="product_id">Product Name</div>
     <div class="product_price" style="border:none;">Price</div>
 </div>
 
 <br>
 <br>
 
-<a href="order.html">
+{% for order in orders %}
+<a href="{% url 'view_order' order.order_id %}">
     <div class="orderstable">
-        <div class="order_id">00071</div> 
-        <div class="customer_id">8793</div>
-        <div class="product_id">0001</div>
-        <div class="product_quantity">1</div>
-        <div class="product_price" style="border:none;">Rs 54000</div>
+        <div class="order_id">{{order.order_id}}</div> 
+        <div class="customer_id">{{order.buyer_id}}</div>
+        <div class="product_id">{{order.product_id.product_id}}</div>
+        
+        <div class="product_id">{{order.product_id}}</div>
+        <div class="product_price" style="border:none;">Rs {{order.product_id.product_price}}</div>
     </div>
 </a>
 
 <br>
-
+{% endfor %}
 {% endif %}
 </div>
 {% endblock body %}

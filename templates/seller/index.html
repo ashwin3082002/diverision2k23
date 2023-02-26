@@ -28,7 +28,7 @@
 <br>
 <br>
 
-<a href="order.html">
+<a>
     <div class="orderstable">
         <div class="order_id">00071</div> 
         <div class="customer_id">8793</div>
@@ -39,7 +39,7 @@
 </a>
 
 <br>
-<button style="padding: 5px; margin-top: 10px; font-size: 18px; border-radius: 5px; border: 1px solid black;" onclick="location.href='seller_orders.html'">View all</button>
+<button style="padding: 5px; margin-top: 10px; font-size: 18px; border-radius: 5px; border: 1px solid black;" onclick="location.href='{% url 'orders' %}'">View all</button>
 
 
 {% endif %}

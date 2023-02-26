@@ -8,15 +8,19 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
-def seller_index(request):
-    return render(request, 'index.html')
 
 @login_required(login_url='seller_login')
 def seller_index(request):
     seller_id = Seller.objects.get(seller_email=request.user.username).seller_id
     orders = Order.objects.filter(seller_id= seller_id)
-    context = {'orders':orders[:3],"order_count":orders.count(),"products_listed":Product.objects.filter(seller_id=seller_id).count(),"total_sold":orders.filter(order_status="Delivered").count()}
+    context = {'orders':orders[:3],"order_count":orders.count(),'empty':orders.first(),"products_listed":Product.objects.filter(seller_id=seller_id).count(),"total_sold":orders.filter(order_status="Delivered").count()}
     return render(request, 'seller/index.html', context)
+
+@login_required(login_url='seller_login')
+def view_order(request,id):
+    order = Order.objects.get(order_id=id)
+    context = {'order':order}
+    return render(request, 'seller/view_order.html', context)
 
 @login_required(login_url='seller_login')
 def add_product(request):

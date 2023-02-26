@@ -1,0 +1,48 @@
+{% extends 'seller/template.html' %}
+
+{% block title %}Order Details{% endblock title %}
+
+{% block body %}
+<div class="order_wrapper">
+
+    <br>
+
+<h1>Order Details</h1>
+<hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
+
+<br>
+<br>
+
+<div>
+    <h2>Order ID: <span>{{order.order_id}}</span></h2>
+    <br>
+    <h2>Customer ID: <span>{{order.buyer_id.buyer_id}}</span></h3>
+    <br>
+    <h2>Customer Name: <span>{{order.buyer_id.buyer_name}}</span></h3>
+    <br>
+    <h2>Product ID: <span>{{order.product_id}}</span></h3>
+    <br>
+    <h2>Product Name:<span>{{order.product_id.product_name}}</span></h3>
+    <br>
+    <h2>Total Price: Rs<span> {{order.product_id.product_price}}</span></h3>
+    <br>
+    <h2>Delivery Address:</h2>
+    <span style="display: flex; flex-wrap: nowrap; width: 500px;">{{order.address}}</span>
+    <br>
+    <h2>Status: <span>{{order.status}}</span></h2>
+    <br>
+    <h2>Transaction Status: <span>{{order.transaction_status}}</span></h2>
+</div>
+
+
+</div>
+
+
+<br>
+<br>
+<br>
+
+</div>
+
+
+{% endblock body %}
