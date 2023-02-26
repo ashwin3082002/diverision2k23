@@ -21,14 +21,18 @@
         {% if messages %}
         
         {% for message in messages %}
-
-        <div id="msg">  
-            <p>{{message}}</p>
+        <div id="alert_popup" style="display:flex;">
+            <div id="alert_context">
+                {{message}}
+            </div>
+            <button onclick="closepopup()">x</button>
         </div>
 
         {% endfor %}
         
         {% endif %}
+
+
 
         <div class="login_wrapper">
 <h1>Seller Login</h1><br>
@@ -67,7 +71,7 @@
 
     </div>
 
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'script.js' %}"></script>
 
 </body>
 </html>

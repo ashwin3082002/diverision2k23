@@ -392,3 +392,68 @@ main footer{
     width: 100%;
     text-align: center;
 }
+
+#alert_popup{
+    width: 400px;
+    height: 60px;
+    background-color: #f9f9f9;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 200px);
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#alert_context{
+    width: 370px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 100;
+}
+#alert_popup button{
+    background-color: red;
+    width: 30px;
+    height: 60px;
+    border: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.wallet_amount{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 100;
+    margin-top: 20px;
+}
+.wallet_amount div{
+    background-color: rgb(223, 223, 223);
+    border-radius: 10px;
+    margin-right: 40px;
+}
+.wallet_amount div h1{
+    font-size: 30px;
+    font-weight: 600;
+    padding: 10px;
+}
+.wallet_amount div h2{
+    font-size: 25px;
+    font-weight: 100;
+    padding: 10px;
+    background-color: #e7e7e7;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
