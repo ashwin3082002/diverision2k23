@@ -1,8 +1,39 @@
-{% extends 'buyer/template.html' %}
+{% extends 'seller/template.html' %}
 
-{% block title %}Buyer wallet{% endblock title %}
+{% block title %}Seller wallet{% endblock title %}
 
 {% block body %}
+
+<body>
+
+    <main>
+
+        <header>
+
+            <h1>SAFE<span style="font-size: 20px;">Pay</span></h1>
+
+            <nav>
+                <a href="seller.html"><img src="img/home.png">&nbsp;Home</a>
+                <a href="newlisting.html"><img src="img/newlisting.png">&nbsp;New listing</a>
+                <a href="products.html"><img src="img/products.png">&nbsp;Products</a>
+                <a href="seller_orders.html"><img src="img/orders.png">&nbsp;Orders</a>
+                <a href="wallet.html"><img src="img/wallet.png">&nbsp;Wallet</a>
+            </nav>
+
+            <div id="profile_badge">
+
+                <button>
+                    <img src="img/profile.png"> &nbsp; <p>Mithun Raj</p>
+                </button>
+
+                
+
+            </div>
+
+        </header>
+
+        <div id="container">
+
 
 
             <div class="products_seller">
@@ -37,9 +68,6 @@
             <br>
             <br>
 
-            {% for transaction in transactions %}
-            
-            {% endfor %}
             <a href="product.html">
                 <div class="producttable">
                     <div class="transaction_id">Transaction ID</div> 
@@ -87,4 +115,19 @@
             <br>
             <br>
             <br>
+
+
+            </div>
+
+        </div>
+
+        <footer>
+            <p>All rights reserved.</p>
+        </footer>
+
+    </main>
+    
+</body>
+</html>
+
 {% endblock body %}

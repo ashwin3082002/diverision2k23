@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +7,160 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Page</title>
-    {% load static %}
+    <style>
+    
+       *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    /* .login-form {
+        width:350px;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        position:absolute;
+        color:black;
+    } */
+    
+    .header{
+        min-height: 100vh;
+        width:100%;
+        background-position: center;
+        background-size:cover;
+        position:relative;
+        color:white;
+        {% comment %} background-color:black; {% endcomment %}
+        background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("{% static 'seller\img\welcome.jpg' %}");
+    }
+    
+    
+    .row{
+        margin-top: 100px;
+    }
+    
+    .login-form h1{
+        font-size:40px;
+        margin:40px 0;
+    }
+    .login-form label{
+        font-size:20px;
+        margin:15px 0;
+        
+    }
+    input{
+        line-height: 1.5;
+    }
+    .login-form input{
+        font-size: 16px;
+        width:90%;
+        margin:auto;
+        padding:15px 10px;
+        outline:none;
+        border-radius: 5px;
+    }
+    
+    .login-form button{
+        font-size: 18px;
+        font-weight:400;
+        margin: 25px 0;
+        padding: 10px 15px;
+        width:30%;
+        border-radius: 5px;
+        border: 2px solid black;
+        background-color: white;
+    
+    }
+    body{
+        background-color: #E7EBF2;
+        height:100vh;
+    }
+    
+    label{
+        margin:15px 0;
+        display: inline-block;
+    
+    }
+    
+    .navba{
+        text-align: center;
+        font-size:30px;
+    }
+    
+    .top-container{
+        text-align: center;
+    }
+    .button-area a{
+        text-decoration: none;
+        color:black;
+        font-size:12px;
+        padding:20px;
+    }
+    
+    .textbox {
+        color:white;
+        width:90%;
+        position: absolute;
+        top:55%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    
+    }
+    
+    .textbox h1{
+        font-size: 65px;
+        margin: 10px 0 40px;
+    }
+    
+    .textbox p{
+        margin:10px 0 40px;
+        font-size:14px ;
+        padding:0 20%;
+    }
+    
+    .herobtn{
+        text-decoration: none;
+        border:2px solid white;
+        color:white;
+        padding:20px;
+        border-radius: 10px;
+        background: transparent;
+        position:relative;
+        margin:20px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .herobtn a{
+        text-decoration: none;
+        color:black
+        
+    }
+    
+    
+    
+    
+   </style>
+   
+    
 </head>
-<body>
+<body style="">
+
+
+<div class="header">
+<nav class="navba">
+     <h1> SAFYpay</h1>
+</nav>
+<div class="textbox">
+<h1>
+    Welcome to SAFYpay
+</h1>
+<p>Our website serves as a trustable platform between buyers and sellers where customers will pay the money to the seller only after the product is delievered to them.
+    The money after placing order will be locked in the buyers account itself it will only be transferd to seller only when the order is delievered to them.
+</p>
+        <a href=""><button class="herobtn"> User login</button></a>
+        <a href=""><button class="herobtn"> Seller login</button></a>
+</div>
+</div>
 </body>
 </html>

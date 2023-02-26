@@ -6,6 +6,10 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+
+def seller_index(request):
+    return render(request, 'index.html')
+
 @login_required(login_url='seller_login')
 def seller_index(request):
     return render(request, 'seller/index.html')
@@ -98,5 +102,8 @@ def seller_logout(request):
 def buyer_wallet(request):
     buyer_id = Buyer.objects.get(buyer_email=request.user.username)
     buyer = Buyer.objects.get(buyer_id=buyer_id)
+
+    
     context = {'buyer':buyer}
     return render(request, 'buyer/wallet.html', context)
+
