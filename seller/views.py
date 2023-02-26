@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from util.func import send_sms
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -124,12 +125,22 @@ def seller_wallet(request):
     return render(request, 'seller/wallet.html', context)
 
 
-def buyer_wallet(request):
-    buyer = Buyer.objects.get(buyer_email=request.user.username)
-    transaction = Transactions.objects.filter(buyer_id=Buyer).all()
+def seller_register(request):
+    if request.method == 'POST':
+        seller_name = request.POST['seller_name']
+        seller_email = request.POST['seller_email']
+        seller_phone = request.POST['seller_phone']
+        seller_password = request.POST['seller_password']
+        user = User.objects.create_user(username=seller_email,
+                                 email=seller_email,
+                                 password=seller_password)
+        user.save()
 
-    context = {'buyer':buyer, 'transactions':transaction}
+        seller = Seller(seller_name=seller_name, seller_email=seller_email, seller_phone=seller_phone, seller_password=seller_password)
+        
+        seller.save()
+        messages.success(request, 'Registered successfully')
+        return redirect('seller_login')
+    return render(request, 'seller/register.html')
 
-    
-    return render(request, 'buyer/wallet.html', context)
 
