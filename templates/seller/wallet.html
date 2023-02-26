@@ -4,38 +4,6 @@
 
 {% block body %}
 
-<body>
-
-    <main>
-
-        <header>
-
-            <h1>SAFE<span style="font-size: 20px;">Pay</span></h1>
-
-            <nav>
-                <a href="seller.html"><img src="img/home.png">&nbsp;Home</a>
-                <a href="newlisting.html"><img src="img/newlisting.png">&nbsp;New listing</a>
-                <a href="products.html"><img src="img/products.png">&nbsp;Products</a>
-                <a href="seller_orders.html"><img src="img/orders.png">&nbsp;Orders</a>
-                <a href="wallet.html"><img src="img/wallet.png">&nbsp;Wallet</a>
-            </nav>
-
-            <div id="profile_badge">
-
-                <button>
-                    <img src="img/profile.png"> &nbsp; <p>Mithun Raj</p>
-                </button>
-
-                
-
-            </div>
-
-        </header>
-
-        <div id="container">
-
-
-
             <div class="products_seller">
 
                 <br>
@@ -68,66 +36,21 @@
             <br>
             <br>
 
-            <a href="product.html">
-                <div class="producttable">
-                    <div class="transaction_id">Transaction ID</div> 
-                    <div class="transaction_date">Date</div>
-                    <div class="transaction_amount">Transaction Amount</div>
-                    <div class="transaction_status" style="border:none;">Status</div>
-                </div>
-            </a>
+            {% for transaction in transactions %}
+                <a href="product.html">
+                    <div class="producttable">
+                        <div class="transaction_id">{{transaction.transaction_id}}</div> 
+                        <div class="transaction_date">{{transaction.transaction_date}}</div>
+                        <div class="transaction_amount">{{transaction.transaction_amount}}</div>
+                        <div class="transaction_status" style="border:none;">{{transaction.transaction_status}}</div>
+                    </div>
+                </a>
 
-            <br>
-            <br>
+                <br>
+                <br>
+            {% endfor %}
+            
 
-            <a href="product.html">
-                <div class="producttable">
-                    <div class="transaction_id">007546</div> 
-                    <div class="transaction_date">10-08-2021</div>
-                    <div class="transaction_amount">Rs 35656</div>
-                    <div class="transaction_status" style="border:none;">Completed</div>
-                </div>
-            </a>
-
-            <br>
-
-            <a href="product.html">
-                <div class="producttable">
-                    <div class="transaction_id">007546</div> 
-                    <div class="transaction_date">10-08-2021</div>
-                    <div class="transaction_amount">Rs 35656</div>
-                    <div class="transaction_status" style="border:none;">Completed</div>
-                </div>
-            </a>
-
-            <br>
-
-            <a href="product.html">
-                <div class="producttable">
-                    <div class="transaction_id">007546</div> 
-                    <div class="transaction_date">10-08-2021</div>
-                    <div class="transaction_amount">Rs 35656</div>
-                    <div class="transaction_status" style="border:none;">Completed</div>
-                </div>
-            </a>
-
-            <br>
-            <br>
-            <br>
-            <br>
-
-
-            </div>
-
-        </div>
-
-        <footer>
-            <p>All rights reserved.</p>
-        </footer>
-
-    </main>
     
-</body>
-</html>
-
+            <br><br><br><br>
 {% endblock body %}

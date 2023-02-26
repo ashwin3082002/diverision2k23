@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{% block title %}{% endblock title %}</title>
-    {% load static %}
+    
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
 </head>
@@ -14,16 +15,16 @@
     {% if messages %}
         
         {% for message in messages %}
-        <div id="alert_popup" style="display:flex;">
-            <div id="alert_context">
-                {{message}}
+            <div id="alert_popup" style="display:flex;">
+                <div id="alert_context">
+                    {{message}}
+                </div>
+                <button onclick="closepopup()">x</button>
             </div>
-            <button onclick="closepopup()">x</button>
-        </div>
 
         {% endfor %}
         
-        {% endif %}
+    {% endif %}
 
     <main>
 
@@ -36,6 +37,7 @@
                 <a href="{% url 'add_product' %}"><img src="{% static 'seller/img/newlisting.png' %}">&nbsp;New listing</a>
                 <a href="{% url 'list_product' %}"><img src="{% static 'seller/img/products.png' %}">&nbsp;Products</a>
                 <a href="{% url 'orders' %}"><img src="{% static 'seller/img/orders.png' %}">&nbsp;Orders</a>
+                <a href="{% url 'seller_wallet' %}"><img src="{% static 'seller/img/wallet.png' %}">&nbsp;Wallet</a>
             </nav>
 
             <div id="profile_badge">
@@ -51,7 +53,9 @@
         </header>
 
         <div id="container">
-            {% block body %}{% endblock body %}
+            {% block body %}
+            
+            {% endblock body %}
             
 
         </div>

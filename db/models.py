@@ -59,7 +59,7 @@ class Order(models.Model):
     
 class Transactions(models.Model):
     transaction_id = models.AutoField(primary_key=True)
-    transaction_date = models.DateField()
+    transaction_date = models.DateField(auto_now=True)
     transaction_amount = models.CharField(max_length=100)
     transaction_status = models.CharField(max_length=100, default='holding', choices=(('holding', 'holding'), ('refunded', 'refunded'), ('paid', 'paid')))
     transaction_status = models.CharField(max_length=100, default='pending')
@@ -68,4 +68,4 @@ class Transactions(models.Model):
     product_id = models.ManyToManyField(Product, blank=True, null=True)
 
     def __str__(self):
-        return self.transaction_status
+        return self.transaction_status  

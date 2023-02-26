@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from db.models import Seller, Buyer, Product, Order
+from db.models import Seller, Buyer, Product, Order, Transactions
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -111,12 +111,22 @@ def seller_logout(request):
     messages.success(request, 'Logged out successfully')
     return redirect('seller_login')
 
+def seller_wallet(request):
+    seller = Seller.objects.get(seller_email=request.user.username)
+    transaction = Transactions.objects.filter(seller_id=seller)
 
-def buyer_wallet(request):
-    buyer_id = Buyer.objects.get(buyer_email=request.user.username)
-    buyer = Buyer.objects.get(buyer_id=buyer_id)
+    context = {'seller':seller, 'transactions':transaction}
 
     
-    context = {'buyer':buyer}
+    return render(request, 'seller/wallet.html', context)
+
+
+def buyer_wallet(request):
+    buyer = Buyer.objects.get(buyer_email=request.user.username)
+    transaction = Transactions.objects.filter(buyer_id=Buyer).all()
+
+    context = {'buyer':buyer, 'transactions':transaction}
+
+    
     return render(request, 'buyer/wallet.html', context)
 
