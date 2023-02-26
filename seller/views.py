@@ -3,7 +3,7 @@ from db.models import Seller, Buyer, Product, Order
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from util.func import send_sms
 
 # Create your views here.
 @login_required(login_url='seller_login')
@@ -22,6 +22,13 @@ def add_product(request):
         seller_id =  Seller.objects.get(seller_email=request.user.username)
         product = Product(product_name=product_name, product_price=product_price, product_description=product_description, product_photo=product_photo, seller_id=seller_id, category=category)
         product.save()
+        send_sms(f"""New product was added to your seller Account
+         
+Product Name: {product_name}
+Product Price: {product_price}
+
+The product is listed succesfully in the website!!           
+   """, seller_id.seller_phone)
         messages.success(request, 'Product added successfully')
         return redirect('seller_index')
     return render(request, 'seller/add_product.html')
@@ -36,6 +43,7 @@ def list_product(request):
 @login_required(login_url='seller_login')
 def view_product(request, id):
     product = Product.objects.get(product_id=id)
+
     if "edit" in request.POST:
         return redirect('edit_product', id=id)
     
