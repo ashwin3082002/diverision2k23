@@ -52,6 +52,27 @@ def home_page(request):
     return render(request, 'buyer/home.html', context)
 
 def orderconfirm_page(request):
+    if request.method == "POST":
+        buyer = Buyer.objects.get(buyer_id=request.user.id)
+        product = Product.objects.get(product_id=request.POST['product_id'])
+
+        order = Order.objects.create(
+            buyer_id = buyer,
+            product_id = product,
+            seller_id = product.seller_id,
+        )
+
+        transaction = Transactions.objects.create(
+            transaction_amount = product.product_price,
+            order_id = order
+        )
+
+        send_sms(message=f"Your order {order.pk} has been successfully place for the product {order.product_id.product_name}.", to=buyer.buyer_phone)
+
+        
+        return render(request, 'buyer/orderconfirm.html')
+
+
     return render(request, 'buyer/orderconfirm.html')
 
 def orders_page(request):

@@ -39,7 +39,7 @@ class Product(models.Model):
 
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
-    order_date = models.DateField()
+    order_date = models.DateField(auto_now=True)
     order_status = models.CharField(max_length=255, default='created')
     buyer_id = models.ForeignKey(Buyer, on_delete=models.CASCADE)
     seller_id = models.ForeignKey(Seller, on_delete=models.CASCADE)

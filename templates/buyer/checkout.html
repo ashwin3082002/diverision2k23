@@ -397,7 +397,7 @@
                     
                     <tr>
                         <td>{{product.product_name}}</td>
-                        <td>{{product.amount}}</td>
+                        <td>{{product.product_price}}</td>
                     </tr>
                     
                 </tbody>
@@ -405,7 +405,11 @@
 
         </p>
         <p class="balance">Total Cost: {{order_total}}</p>
-        <a href="{% url 'checkout_page' %}"><button class="bttn paybill">Pay bill</button></a>
+        <form action="{% url 'orderconfirm_page' %}" method="post">
+            {% csrf_token %}
+            <input value="{{product.product_id}}" name="product_id" id="product_id" hidden>
+            <button class="bttn paybill">Pay bill</button>
+        </form>
     </div>
 </div>
 
