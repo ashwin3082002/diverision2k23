@@ -30,14 +30,23 @@
 
             <br>
             <br>
+            <div class="producttable" style="background-color: rgb(193, 192, 192);">
+                <div class="producttable_id">Transaction ID</div>
+                <div class="producttable_id">Order ID</div>
+                <div class="producttable_name">Date</div>
+                <div class="producttable_category">Amount</div>
+                <div class="producttable_price" style="border:none;">Product Name</div>
+            </div>
 
             {% for transaction in transactions %}
-                <a href="product.html">
+                <a>
                     <div class="producttable">
                         <div class="transaction_id">{{transaction.transaction_id}}</div> 
+                        
+                        <div class="transaction_id">{{transaction.order_id.order_id}}</div> 
                         <div class="transaction_date">{{transaction.transaction_date}}</div>
                         <div class="transaction_amount">{{transaction.transaction_amount}}</div>
-                        <div class="transaction_status" style="border:none;">{{transaction.transaction_status}}</div>
+                        <div class="transaction_status" style="border:none;">{{transaction.order_id.product_id.product_name}}</div>
                     </div>
                 </a>
 
