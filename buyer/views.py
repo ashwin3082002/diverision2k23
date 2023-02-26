@@ -67,12 +67,8 @@ def orderconfirm_page(request):
             order_id = order
         )
 
-        print('ADDED')
+        send_sms(message=f"Your order {order.pk} has been successfully place for the product {order.product_id.product_name}.", to=buyer.buyer_phone)
 
-        
-
-
-        
         
         return render(request, 'buyer/orderconfirm.html')
 
