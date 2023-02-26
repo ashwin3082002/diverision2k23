@@ -1,0 +1,424 @@
+{% extends 'buyer/template.html' %}
+{% load static %}
+
+{% block title %}
+    User Home
+{% endblock title %}
+
+{% block body %}
+
+
+<style>
+    .alert{
+        background-color: #E7EBF2;
+        border:none;
+        --bs-alert-padding-x: 40px;
+        --bs-alert-padding-y: 20px;
+        margin-bottom:0;
+        font-size:20px;
+        list-style: none;
+        text-align: center;
+    }
+    
+    .myorders{
+        width:70%;
+        margin:auto;
+        
+    }
+    
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+        background-color: #E7EBF2;
+    
+    }
+    
+    body{
+        background-color: #E7EBF2;
+    }
+    
+    .heading{
+        font-size: 3em;
+        padding:0 0 10px;
+        margin-bottom: 20px;
+    }
+    
+    /* .table{
+        border:1px solid black;
+    } */
+    
+    
+    .table_container{
+        padding:0 50px;
+    }
+    /* navbar */
+    nav{
+        display:flex;
+        padding:2% 6%;
+        text-align: center;
+        justify-content: space-between;
+    }
+    .navbar h1 img{
+        width: 180px;
+        padding: 10px;
+    }
+    .nav-links{
+        flex:1;
+        text-align: right;
+    }
+    .nav-links ul li{
+        list-style: none;
+        display:inline-block;
+        padding:6px 10px;
+        position:relative;
+    }
+    .nav-links ul li a{
+        text-decoration: none;
+        color:black;
+        font-size:20px;
+    }
+    
+    /* .navbar{
+        background-color: #000000;
+        color:white;
+        padding-top: 20px;
+        border-radius: 50px;
+        margin: 10px;    
+    } */
+    
+    .order_details{
+        border:1px solid rgb(111, 111, 111);
+        width:70%;
+        margin:auto;
+        border-radius: 10px;
+        padding:50px
+    }
+    .order_details h1{
+        font-weight:700
+    }
+    
+    .order_detail{
+        margin-top: 40px;
+    }
+    
+    .button{
+        border-radius: 10px;
+    }
+    
+    .button a{
+        padding:10px;
+        text-decoration: none;
+        color:black;
+    }
+    
+    .home_container{
+        display:grid
+    }
+    
+    
+    .seller_details{
+        padding:30px;
+        line-height: 2;
+    
+    }
+    .inp{
+        line-height: 2;
+    }
+    
+    label{
+        display:block;
+    }
+    input{
+        line-height: 2;
+        width:90%;
+    }
+    .input{
+        width:100%;
+    }
+    textarea{
+        width:90%;    
+    }
+    .btnarea{
+        display:flex;
+        float: left;
+        justify-content:space-between;
+        padding:20px 0;
+    }
+    
+    .product_container{
+        width:70%;
+        margin:auto;
+        padding:20px;
+    }
+    
+    
+    .products{
+        width: 90%;
+        margin: 10px auto;
+        border-radius: 10px;
+        list-style: none;
+        background-color: #f9f9f9;
+        overflow: hidden;
+    }
+    .products h1{
+        padding-left: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #f9f9f9;
+    
+    }
+    .products ul{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: #f9f9f9;
+    
+    }
+    .product h2 a{
+        text-decoration: none;
+        color: #000000;
+        background-color: #d1d1d1;
+    }
+    .product{
+        width: 45%;
+        padding: 10px;
+        margin-right: 60px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        background-color: rgb(236, 236, 236);
+        display: flex;
+        background-color: #E7EBF2;
+    }
+    .product img{
+        height: 200px;
+        width: 330px;
+        overflow: hidden;
+        border-radius: 10px;
+        border: none;
+        margin: 10px;
+        background-color: #f9f9f9;
+    
+    }
+    .product div{
+        height: 200px;
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 10px;
+        background-color: #d1d1d1;
+    }
+    .product div h2{
+        padding: 10px;
+        background-color: #d1d1d1;
+    }
+    .product div p{
+        padding-left: 10px;
+        background-color: #d1d1d1;
+    
+    }
+    .product div form{
+        background-color: #d1d1d1;
+    }
+    
+    .bttn{
+        border:none;
+        color: #000000;
+        margin-right: 20px;
+        margin-left:10px;
+        padding: 8px;
+        border-radius: 4px;
+        width: max-content;
+        background-color: #000000;
+        color: #f9f9f9;
+        height: max-content;
+    }
+    .log{
+        padding:5px;
+        margin-left:0;
+        margin-top:10px;
+    }
+    .sub{
+        padding:5px;
+        margin-left:0;
+        margin-top:10px;
+    }
+    .bttn:hover{
+        scale: 1.05;
+        transition: ease-in-out 200ms;
+        background-color: #3d3d3d;
+    }
+    
+    .paybill{
+        float:right;
+    }
+    
+    .cal{
+        padding:50px;
+        height:100vh;
+    }
+    .thanks{
+        text-align: center;
+    }
+    
+    .balance{
+        font-size:30px;
+        line-height: 2;
+    }
+    .rep{
+        margin-top: 30px;
+        margin-left:0;
+        position: absolute;
+        display: block;
+    }
+    
+    .wale{
+        list-style: none;
+        padding:10px;
+    }
+    .bal{
+        font-size: 20px;
+        padding:20px 0;
+    }
+    
+    .wallet{
+    
+        padding:20px 40px;
+        border:1px solid black;
+        margin:20px 30px;
+        border-radius: 10px;
+    }
+    .wal{
+        margin-left: 20px;
+        
+    }
+    .wall{
+        width:100px;
+        margin-right:20px;
+    }
+    .in{
+        width:50%;
+        margin-left: 20px;
+        display: inline-block;
+    }
+    .inline{
+        display:inline-block;
+    }
+    .transaction{
+        margin-right:27px;
+        border:1px solid black;
+        border-radius: 10px;
+        padding: 20px 40px;
+        
+    
+    }
+    .balbg{
+        background-color:black;
+        color:white;
+        width:max-content;
+        border-radius: 10px;
+        padding:8px;
+    }
+    .width{
+        width:90%;
+    }
+    
+    .label{
+        margin: 20px 0;
+    }
+    
+    .money{
+        border:1px solid black;
+        border-radius: 10px;
+        padding: 20px 40px;
+        margin:10px;
+    }
+    
+    .delete:hover{
+        background-color: #d20808;
+        color:white;
+        border-color: #d20808;
+    
+    }
+    
+    .nav_items{
+        margin:0 10px;
+    }
+    
+    .table_data{
+        width:10px;
+        font-size: 20px;
+    }
+    
+    .productlisting{
+        font-size: 20px;
+    }
+    
+    /* dispute page */
+    .dispute{
+        padding:100px 150px;
+    }
+    
+    .disbtn{
+        margin-left:0;
+        margin-top:40px;
+    }
+    
+    .disimage{
+        height:500px;
+        width:500px;
+    }
+    
+    /* wallet */
+    
+    .font{
+        font-size: 3 em;
+        margin-bottom: 20px;
+    }
+    .myordercontainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<main>
+
+    <div class="products">
+        
+        <h1>Products</h1>
+
+
+        <ul>
+        
+        {% for product in products %}
+        <li class="product">
+
+            <img src="/media/{{ product.product_img}}" alt="">
+
+            <div>
+                <h2><a href="#">{{product.product_title}}</a></h2>
+
+                <p>Category: {{product.product_category}}</p>
+                <p>Price: {{product.amount}}</p>
+                {% comment %} add to cart {% endcomment %}
+                <form action="{% url 'home_buyer' %}" method="post">
+                    {% csrf_token %}
+                    <input value="{{product.id}}" name="product_id" id="product_id" hidden>
+                   <button type="submit" class="bttn"> Add to cart </button>
+                </form>
+                
+
+            </div>
+
+        </li>
+        {% endfor %}
+        </ul>
+        
+
+    </div>
+
+</main>
+
+
+{% endblock body %}
