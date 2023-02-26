@@ -26,13 +26,18 @@ def buyer_login(request):
     return render(request, 'buyer/login.html')
 
 def cart_page(request):
+
     return render(request, 'buyer/cart.html')
 
 def checkout_page(request):
     return render(request, 'buyer/checkout.html')
 
 def home_page(request):
-    return render(request, 'buyer/home.html')
+    products = Product.objects.all()
+    context = {
+        'products': products
+    }
+    return render(request, 'buyer/home.html', context)
 
 def orderconfirm_page(request):
     return render(request, 'buyer/orderconfirm.html')
