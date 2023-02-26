@@ -1,0 +1,133 @@
+{% extends 'buyer/template.html' %}
+
+{% block title %}Buyer wallet{% endblock title %}
+
+{% block body %}
+
+<body>
+
+    <main>
+
+        <header>
+
+            <h1>SAFE<span style="font-size: 20px;">Pay</span></h1>
+
+            <nav>
+                <a href="seller.html"><img src="img/home.png">&nbsp;Home</a>
+                <a href="newlisting.html"><img src="img/newlisting.png">&nbsp;New listing</a>
+                <a href="products.html"><img src="img/products.png">&nbsp;Products</a>
+                <a href="seller_orders.html"><img src="img/orders.png">&nbsp;Orders</a>
+                <a href="wallet.html"><img src="img/wallet.png">&nbsp;Wallet</a>
+            </nav>
+
+            <div id="profile_badge">
+
+                <button>
+                    <img src="img/profile.png"> &nbsp; <p>Mithun Raj</p>
+                </button>
+
+                
+
+            </div>
+
+        </header>
+
+        <div id="container">
+
+
+
+            <div class="products_seller">
+
+                <br>
+
+            <h1>Wallet</h1>
+            <hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
+
+            <br>
+            <br>
+
+            <div class="wallet_amount">
+                <div>
+                    <h1>Current Balance</h1>
+                    <hr>
+                    <h2>Rs 35656</h2>
+                </div>
+                <div>
+                    <h1>Ledger Balance</h1>
+                    <hr>
+                    <h2>Rs 35656</h2>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <h1>Transactions</h1>
+            <hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
+
+            <br>
+            <br>
+
+            <a href="product.html">
+                <div class="producttable">
+                    <div class="transaction_id">Transaction ID</div> 
+                    <div class="transaction_date">Date</div>
+                    <div class="transaction_amount">Transaction Amount</div>
+                    <div class="transaction_status" style="border:none;">Status</div>
+                </div>
+            </a>
+
+            <br>
+            <br>
+
+            <a href="product.html">
+                <div class="producttable">
+                    <div class="transaction_id">007546</div> 
+                    <div class="transaction_date">10-08-2021</div>
+                    <div class="transaction_amount">Rs 35656</div>
+                    <div class="transaction_status" style="border:none;">Completed</div>
+                </div>
+            </a>
+
+            <br>
+
+            <a href="product.html">
+                <div class="producttable">
+                    <div class="transaction_id">007546</div> 
+                    <div class="transaction_date">10-08-2021</div>
+                    <div class="transaction_amount">Rs 35656</div>
+                    <div class="transaction_status" style="border:none;">Completed</div>
+                </div>
+            </a>
+
+            <br>
+
+            <a href="product.html">
+                <div class="producttable">
+                    <div class="transaction_id">007546</div> 
+                    <div class="transaction_date">10-08-2021</div>
+                    <div class="transaction_amount">Rs 35656</div>
+                    <div class="transaction_status" style="border:none;">Completed</div>
+                </div>
+            </a>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+            </div>
+
+        </div>
+
+        <footer>
+            <p>All rights reserved.</p>
+        </footer>
+
+    </main>
+    
+</body>
+</html>
+
+{% endblock body %}

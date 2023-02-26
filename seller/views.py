@@ -93,3 +93,10 @@ def seller_logout(request):
     logout(request)
     messages.success(request, 'Logged out successfully')
     return redirect('seller_login')
+
+
+def buyer_wallet(request):
+    buyer_id = Buyer.objects.get(buyer_email=request.user.username)
+    buyer = Buyer.objects.get(buyer_id=buyer_id)
+    context = {'buyer':buyer}
+    return render(request, 'buyer/wallet.html', context)
