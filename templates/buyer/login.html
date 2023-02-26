@@ -146,7 +146,7 @@
 
     <h1>   User Login   </h1>
     
-    <form action="{% url 'login_user' %}" method="post">
+    <form action="{% url 'buyer_login' %}" method="post">
         {% csrf_token %}
         <label class="name"> User name</label>
         <input type="text" name="name" placeholder="Enter your username">
