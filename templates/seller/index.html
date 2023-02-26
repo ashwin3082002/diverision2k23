@@ -2,4 +2,78 @@
 
 {% block title %}Home | Seller{% endblock title %}
 
-{% block body %}{% endblock body %}
+{% block body %}
+<div class="orders_seller">
+
+    <br>
+
+<h1>Recent Orders</h1>
+<hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
+
+<br>
+<br>
+{% if empty == None %}
+<br><br><br><br>
+<h2 style = "text-align:center;"> No Orders to list!!</h2>
+{% else %}
+
+<div class="orderstable" style="background-color: rgb(193, 192, 192);">
+    <div class="order_id">Order ID</div>
+    <div class="customer_id">Customer ID</div>
+    <div class="product_id">Product ID</div>
+    <div class="product_quantity">Quantity</div>
+    <div class="product_price" style="border:none;">Price</div>
+</div>
+
+<br>
+<br>
+
+<a href="order.html">
+    <div class="orderstable">
+        <div class="order_id">00071</div> 
+        <div class="customer_id">8793</div>
+        <div class="product_id">0001</div>
+        <div class="product_quantity">1</div>
+        <div class="product_price" style="border:none;">Rs 54000</div>
+    </div>
+</a>
+
+<br>
+<button style="padding: 5px; margin-top: 10px; font-size: 18px; border-radius: 5px; border: 1px solid black;" onclick="location.href='seller_orders.html'">View all</button>
+
+
+{% endif %}
+
+
+
+
+</div>
+
+<br>
+<br>
+
+<div class="orders_seller">
+
+    <br>
+
+<h1>Analytics</h1>
+<hr style="width: 80px; height: 5px; background-color:black; border-radius: 10px; border: none;">
+
+<br>
+<br>
+
+
+<h2> <strong>Total Orders: {{order_count}}</strong> </h2><br>
+<h2> <strong>Total Listed Products: {{products_listed}}</strong> </h2><br>
+<h2> <strong>Total Sold Products: {{total_sold}}</strong> </h2><br>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+</div>
+{% endblock body %}
