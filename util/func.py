@@ -11,5 +11,6 @@ def send_sms(message,to):
     body=message,
     to='+91'+str(to)
     )
+    print(message.sid,to)
 
     return message.sid

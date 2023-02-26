@@ -31,30 +31,40 @@
         <br />
 
         <div class="login_form">
-          <form method="post" id="login-form" action="{% url 'seller_login' %}">
+          <form enctype="multipart/form-data" method="POST" action="{% url 'seller_register' %}">
             {% csrf_token %}
-
+            <label for="username">Name</label>
+            <br />
+            <input type="text" name="seller_name" id="seller_name" required />
+            <br>
+            <br />
             <label for="username">Email</label>
             <br />
-            <input type="text" name="username" id="username" required />
+            <input type="text" name="seller_email" id="seller_email" required />
+
+            <br />
+            <br />
+            <label for="username">Phone</label>
+            <br />
+            <input type="text" name="seller_phone" id="seller_phone" required />
 
             <br />
             <br />
 
             <label for="username">Password</label>
             <br />
-            <input type="password" name="password" id="password" required />
-            <br />
-            <a href="#">Forgot Password?</a>
+            <input type="password" name="seller_password" id="seller_password" required />
 
             <br />
             <br />
+            <label for="">Seller Photo</label>
+            <input type="file" name="seller_image" accept="image/png, image/jpeg" id="product_image" required><br><br>
 
-            <input type="submit" value="Login" />
+            <input type="submit" value="Create Account" />
           </form>
 
           <p>
-            Don't have a account? <a href="{% url 'seller_register' %}">Signup</a>
+            Already have a account? <a href="{% url 'seller_login' %}">Signin</a>
           </p>
         </div>
       </div>
