@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'login/styles.css' %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+    
+    <title>{% block title %}{% endblock title %}</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        /* .login-form {
+            width:350px;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            position:absolute;
+            color:black;
+        } */
+        
+        .header{
+            min-height: 100vh;
+            width:100%;
+            background-position: center;
+            background-size:cover;
+            position:relative;
+            color:white;
+        }
+        
+        
+        .row{
+            margin-top: 100px;
+        }
+        
+        .login-form h1{
+            font-size:40px;
+            margin:40px 0;
+        }
+        .login-form label{
+            font-size:20px;
+            margin:15px 0;
+            
+        }
+        input{
+            line-height: 1.5;
+        }
+        .login-form input{
+            font-size: 16px;
+            width:90%;
+            margin:auto;
+            padding:15px 10px;
+            outline:none;
+            border-radius: 5px;
+        }
+        
+        .login-form button{
+            font-size: 18px;
+            font-weight:400;
+            margin: 25px 0;
+            padding: 10px 15px;
+            width:30%;
+            border-radius: 5px;
+            border: 2px solid black;
+            background-color: white;
+        
+        }
+        body{
+            background-color: #E7EBF2;
+            height:100vh;
+        }
+        
+        label{
+            margin:15px 0;
+            display: inline-block;
+        
+        }
+        
+        .navba{
+            text-align: center;
+            font-size:30px;
+        }
+        
+        .top-container{
+            text-align: center;
+        }
+        .button-area a{
+            text-decoration: none;
+            color:black;
+            font-size:12px;
+            padding:20px;
+        }
+        
+        .textbox {
+            color:white;
+            width:90%;
+            position: absolute;
+            top:60%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        
+        }
+        
+        .textbox h1{
+            font-size: 65px;
+            margin: 10px 0 40px;
+        }
+        
+        .textbox p{
+            margin:10px 0 40px;
+            font-size:14px ;
+            padding:0 20%;
+        }
+        
+        .herobtn{
+            text-decoration: none;
+            border:2px solid white;
+            color:white;
+            padding:20px;
+            border-radius: 10px;
+            background: transparent;
+            position:relative;
+            margin:20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .herobtn a{
+            text-decoration: none;
+            color:black
+            
+        }
+        
+    </style>
+
+</head>
+<body>
+    {% if messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+
+    {% block body %}
+    {% endblock body %}
+</body>
+</html>
