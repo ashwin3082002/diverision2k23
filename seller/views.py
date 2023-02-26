@@ -22,13 +22,18 @@ def add_product(request):
         seller_id =  Seller.objects.get(seller_email=request.user.username)
         product = Product(product_name=product_name, product_price=product_price, product_description=product_description, product_photo=product_photo, seller_id=seller_id, category=category)
         product.save()
-        send_sms(f"""New product was added to your seller Account
+        send_sms(f"""
+New product was added to your seller Account
          
 Product Name: {product_name}
 Product Price: {product_price}
 
-The product is listed succesfully in the website!!           
+The product is listed succesfully in the website!!  
+
+Regards,
+Team Safypay
    """, seller_id.seller_phone)
+        
         messages.success(request, 'Product added successfully')
         return redirect('seller_index')
     return render(request, 'seller/add_product.html')
