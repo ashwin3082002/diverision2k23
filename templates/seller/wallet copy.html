@@ -1,8 +1,9 @@
-{% extends 'seller/template.html' %}
+{% extends 'buyer/template.html' %}
 
-{% block title %}Seller wallet{% endblock title %}
+{% block title %}Buyer wallet{% endblock title %}
 
 {% block body %}
+
 
             <div class="products_seller">
 
@@ -16,9 +17,14 @@
 
             <div class="wallet_amount">
                 <div>
-                    <h1>Wallet Balance</h1>
+                    <h1>Current Balance</h1>
                     <hr>
-                    <h2>Rs {{seller.seller_wallet}}</h2>
+                    <h2>Rs 35656</h2>
+                </div>
+                <div>
+                    <h1>Ledger Balance</h1>
+                    <hr>
+                    <h2>Rs 35656</h2>
                 </div>
             </div>
 
@@ -30,39 +36,26 @@
 
             <br>
             <br>
-            <div class="producttable" style="background-color: rgb(193, 192, 192);">
-                <div class="producttable_id">Transaction ID</div>
-                <div class="producttable_id">Order ID</div>
-                <div class="producttable_name">Date</div>
-                <div class="producttable_category">Amount</div>
-                <div class="producttable_price" style="border:none;">Product Name</div>
-            </div>
 
             {% for transaction in transactions %}
-                <a>
+                <a href="product.html">
                     <div class="producttable">
                         <div class="transaction_id">{{transaction.transaction_id}}</div> 
-                        
-                        <div class="transaction_id">{{transaction.order_id.order_id}}</div> 
                         <div class="transaction_date">{{transaction.transaction_date}}</div>
                         <div class="transaction_amount">{{transaction.transaction_amount}}</div>
-                        <div class="transaction_status" style="border:none;">{{transaction.order_id.product_id.product_name}}</div>
+                        <div class="transaction_status" style="border:none;">{{transaction.transaction_status}}</div>
                     </div>
                 </a>
 
                 <br>
                 <br>
             {% endfor %}
+            
 
-            </div>
+            
 
             <br>
             <br>
-
-            
-            
-
-
-    
-            <br><br><br><br>
+            <br>
+            <br>
 {% endblock body %}

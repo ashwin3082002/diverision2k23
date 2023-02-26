@@ -57,10 +57,10 @@ class Transactions(models.Model):
     transaction_date = models.DateField(auto_now=True)
     transaction_amount = models.CharField(max_length=100)
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.transaction_status
+    seller_id = models.ForeignKey(Seller, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return str(self.transaction_id)
 
 class Delivery(models.Model):
     delivery_id = models.AutoField(primary_key=True)

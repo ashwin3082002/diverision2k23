@@ -18,6 +18,22 @@ def seller_index(request):
 
 @login_required(login_url='seller_login')
 def view_order(request,id):
+    if "reject_order" in request.POST:
+        order = Order.objects.get(order_id=id)
+        order.delete()
+        messages.success(request, 'Order Rejected successfully')
+        send_sms(f"""
+Safypay Order Rejected!!
+
+Order ID: {order.order_id}
+Product Name: {order.product_id.product_name}
+
+Seller Rejected Your Order!! Payment if done will be refunded
+
+Regards,
+Team Safypay""", order.buyer_id.buyer_phone)
+        return redirect('orders')
+
     order = Order.objects.get(order_id=id)
     context = {'order':order}
     return render(request, 'seller/view_order.html', context)
