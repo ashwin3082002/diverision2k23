@@ -8,15 +8,19 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
-def seller_index(request):
-    return render(request, 'index.html')
 
 @login_required(login_url='seller_login')
 def seller_index(request):
     seller_id = Seller.objects.get(seller_email=request.user.username).seller_id
     orders = Order.objects.filter(seller_id= seller_id)
-    context = {'orders':orders[:3],"order_count":orders.count(),"products_listed":Product.objects.filter(seller_id=seller_id).count(),"total_sold":orders.filter(order_status="Delivered").count()}
+    context = {'orders':orders[:3],"order_count":orders.count(),'empty':orders.first(),"products_listed":Product.objects.filter(seller_id=seller_id).count(),"total_sold":orders.filter(order_status="Delivered").count()}
     return render(request, 'seller/index.html', context)
+
+@login_required(login_url='seller_login')
+def view_order(request,id):
+    order = Order.objects.get(order_id=id)
+    context = {'order':order}
+    return render(request, 'seller/view_order.html', context)
 
 @login_required(login_url='seller_login')
 def add_product(request):
@@ -131,14 +135,23 @@ def seller_register(request):
         seller_email = request.POST['seller_email']
         seller_phone = request.POST['seller_phone']
         seller_password = request.POST['seller_password']
+        seller_photo = request.FILES['seller_image']
         user = User.objects.create_user(username=seller_email,
                                  email=seller_email,
                                  password=seller_password)
+        
         user.save()
 
-        seller = Seller(seller_name=seller_name, seller_email=seller_email, seller_phone=seller_phone, seller_password=seller_password)
+        seller = Seller(seller_name=seller_name, seller_email=seller_email, seller_phone=seller_phone, seller_photo=seller_photo)
         
         seller.save()
+        send_sms(f"""
+Welcome to Safypay!!
+
+You have successfully registered as a seller in Safypay.
+
+Regards,
+Team Safypay""",seller_phone)
         messages.success(request, 'Registered successfully')
         return redirect('seller_login')
     return render(request, 'seller/register.html')
