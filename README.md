@@ -1,14 +1,69 @@
-# Diversion Hackathon 2023
+# SafyPay
 
-## Project Description:
-We have designed a platform to solve the problem of trust and security in online transactions and e-commerce, which is particularly important for small businesses and also to businesses selling high-value goods. My team has developed an escrow service and dispute resolution process that a trusted 3rd party delivery partner backs so that buyers and sellers can feel confident and safe throughout the transaction process.
+## Project Description
 
-One of the key challenges that we are solving using the platform is the issue of fraudulent orders and payment disputes, which can be a major concern for small businesses. By offering an escrow service, we ensure that funds are held securely until both parties agree that the transaction has been completed successfully. This helps to prevent fraud and reduce the risk of payment disputes.
+This project, SafyPay, was developed as a submission for the [Diversion Hackathon](https://diversion.tech).
 
-In addition, our platform provides a marketplace where buyers can purchase products with complete trust and confidence, without worrying about receiving fake or different items.
+SafyPay is a Django-based platform designed to address the trust and security challenges faced by online transactions and e-commerce, with a particular focus on small businesses and high-value goods. Our platform offers an escrow service and dispute resolution process, backed by a trusted third-party delivery partner, to provide a secure and trustworthy transaction experience for both buyers and sellers.
 
-Overall, our platform empowers small businesses to sell their products with confidence, while also providing buyers with a secure and trustworthy platform for making online purchases. We are committed to building trust and transparency with customers, where everyone can benefit from the power of online commerce.
+SafyPay aims to solve the problem of fraudulent orders and payment disputes, which can be a significant concern for small businesses. By implementing an escrow service, funds are securely held until both parties agree that the transaction has been successfully completed. This approach helps prevent fraud and reduces the risk of payment disputes.
 
-## Challenges
+Additionally, our platform provides a marketplace where buyers can make purchases with confidence, knowing they will receive authentic and as-advertised products.
 
-Initially, we were planning to use smart contracts to draft agreements between the parties but later we got to know that it is difficult to create smart contracts for transactions using normal money. Using smart contracts would involve us creating a cryptocurrency or token for supporting the transactions which would involve tokenomics and we decided to implement the smart contracts at a later stage as it was difficult to implement this in a 36 Hours Hackathon.
+Our mission is to empower small businesses to sell their products with confidence, while providing buyers a secure and transparent platform for online purchases. We are committed to building trust and transparency in the realm of online commerce, benefiting all participants.
+
+## Key Features
+
+- Escrow service for secure transactions
+- Dispute resolution process for fair resolutions
+- Trusted third-party delivery partner
+- Fraud prevention and risk reduction
+- Marketplace for trusted purchases
+
+## Installation
+
+To run SafyPay locally, follow these steps:
+
+1. Clone the repository:
+
+```
+shell
+git clone https://github.com/your-username/safypay.git
+```
+
+2. Install the necessary dependencies:
+```
+cd safypay
+pip install -r requirements.txt
+```
+
+3. Configure the environment variables:
+```
+cp .env.example .env
+Edit the .env file and provide the required configuration values.
+```
+
+4. Run database migrations:
+```
+python manage.py migrate
+```
+
+5. Start the development server:
+```
+python manage.py runserver
+```
+6. Open your browser and navigate to http://localhost:8000 to access SafyPay.
+
+
+## Contributing
+We welcome contributions from the community! If you'd like to contribute to SafyPay, please follow these guidelines:
+
+1. Fork the repository and create your branch:
+
+2. Commit your changes and push to your forked repository
+
+3. Open a pull request, describing your changes and why they should be merged.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
